@@ -235,7 +235,8 @@ function ContributeButton() {
     return (
       <div>
         <button
-          className="pledge disabled:opacity-50 bg-indigo-500 flex items-center justify-center text-white active:bg-indigo-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+          id="pledge"
+          className={`pledge ${!account ? 'opacity-40 cursor-not-allowed' : ''} bg-indigo-500 flex items-center justify-center text-white active:bg-indigo-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150`}
           onClick={contributeForm}
         >
             <svg xmlns="http://www.w3.org/2000/svg" className="inline h-5 w-5 text-white mr-3" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor">
@@ -245,6 +246,7 @@ function ContributeButton() {
         </button>
       </div>
     );
+    
 }
 
 

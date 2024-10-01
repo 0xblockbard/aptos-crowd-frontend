@@ -25,4 +25,12 @@ class PagesController extends Controller
         }
     }
 
+    public function connected(){
+        try {
+            return view('pages.connected');
+        } catch(\Exception $e){
+            abort(400);
+        }
+    }
+
 }

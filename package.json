@@ -73,7 +73,6 @@
         "laravel-vite-plugin": "^1.0.5",
         "lucide-react": "^0.441.0",
         "motion": "^10.17.0",
-        "node-sass": "^9.0.0",
         "petra-plugin-wallet-adapter": "^0.4.5",
         "prelude-ts": "^1.0.6",
         "react": "^18.3.1",

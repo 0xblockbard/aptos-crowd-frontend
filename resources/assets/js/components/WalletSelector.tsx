@@ -12,7 +12,7 @@ import {
   useWallet,
 } from "@aptos-labs/wallet-adapter-react";
 import { ArrowLeft, ArrowRight, ChevronDown, Copy, LogOut, User } from "lucide-react";
-import { createContext, useCallback, useState, useEffect, useContext } from "react";
+import { useCallback, useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "./ui/collapsible";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
@@ -24,35 +24,34 @@ import {
 } from "./ui/dropdown-menu";
 import { useToast } from "./ui/use-toast";
 
-const WalletContext = createContext<{ connectedWallet: string | null; setConnectedWallet: (address: string | null) => void }>({
-  connectedWallet: null,
-  setConnectedWallet: () => {},
-});
-
-// Export the custom hook to use the WalletContext in other components
-export const useConnectedWallet = () => useContext(WalletContext);
-
 export function WalletSelector() {
   const { account, connected, disconnect, wallet } = useWallet();
   const { toast } = useToast();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+
   
-  const [connectedWallet, setConnectedWallet] = useState<string | null>(null);  // State for the wallet address
-
-  // Store wallet address globally when the wallet is connected
-  // useEffect(() => {
-  //   if (connected && account?.address) {
-  //     // (window as any).userWalletAddress = account.address;  // Save to window object
-  //     localStorage.setItem('userWalletAddress', account.address);  // Optionally store in localStorage
-  //     console.log('set wallet address in local storage', account.address)
-  //   }
-  // }, [connected, account?.address]);
-
+  // temp hack for a better UX to circumvent state bugs with hybrid laravel+react build
+  const localStorageConnected = localStorage.getItem("connected");
   useEffect(() => {
-    if (account?.address) {
-        setConnectedWallet(account.address);
+    if (localStorageConnected === null && connected && account?.address) {
+      // Update localStorage
+      localStorage.setItem("connected", "true");
+      // Dispatch a custom event to inform other pages about the wallet connection
+      const event = new CustomEvent("walletConnected", {
+        detail: { connected: connected },
+      });
+      console.log("event dispatched");
+      window.dispatchEvent(event);
     }
-}, [account]);
+  }, [ localStorageConnected, connected, account?.address]);
+
+  // Handle Wallet Disconnection
+  const handleDisconnect = useCallback(() => {
+    // Clear localStorage 
+    localStorage.removeItem("connected");
+    disconnect();
+  }, [disconnect]);
+
 
   const closeDialog = useCallback(() => setIsDialogOpen(false), []);
 
@@ -89,7 +88,7 @@ export function WalletSelector() {
             </a>
           </DropdownMenuItem>
         )}
-        <DropdownMenuItem onSelect={disconnect} className="gap-2">
+        <DropdownMenuItem onSelect={handleDisconnect} className="gap-2">
           <LogOut className="h-4 w-4" /> Disconnect
         </DropdownMenuItem>
       </DropdownMenuContent>
@@ -116,11 +115,7 @@ function ConnectWalletDialog({ close }: ConnectWalletDialogProps) {
   const { aptosConnectWallets, availableWallets, installableWallets } = groupAndSortWallets(wallets);
 
   const hasAptosConnectWallets = !!aptosConnectWallets.length;
-
-  // console.log("aptosConnectWallets.length: ", aptosConnectWallets.length)
-  // console.log("!!aptosConnectWallets.length: ", !!aptosConnectWallets.length)
-  // console.log("hasAptosConnectWallets: ", hasAptosConnectWallets)
-
+  
   return (
     <DialogContent className="max-h-screen overflow-auto">
       <AboutAptosConnect renderEducationScreen={renderEducationScreen}>
@@ -196,10 +191,11 @@ interface WalletRowProps {
 }
 
 function WalletRow({ wallet, onConnect }: WalletRowProps) {
+
   return (
     <WalletItem
       wallet={wallet}
-      onConnect={onConnect}
+      onConnect={onConnect} 
       className="flex items-center justify-between px-4 py-3 gap-4 border rounded-md"
     >
       <div className="flex items-center gap-4">
@@ -220,6 +216,7 @@ function WalletRow({ wallet, onConnect }: WalletRowProps) {
 }
 
 function AptosConnectWalletRow({ wallet, onConnect }: WalletRowProps) {
+
   return (
     <WalletItem wallet={wallet} onConnect={onConnect}>
       <WalletItem.ConnectButton asChild>

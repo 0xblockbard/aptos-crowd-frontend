@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', ['uses' => 'PagesController@home'])->name('home');
 Route::get('/about', ['uses' => 'PagesController@about'])->name('about');
+Route::get('/connected', ['uses' => 'PagesController@connected'])->name('connected');
 
 Route::get('/campaigns', ['uses' => 'CampaignController@showAll'])->name('show_all_campaigns');
 Route::get('/campaigns/{id}', ['uses' => 'CampaignController@show'])->name('show_campaign');

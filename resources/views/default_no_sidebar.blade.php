@@ -43,6 +43,14 @@
 
 <script src="{{ vite_asset("resources/assets/js/app.tsx") }}" defer></script>
 
+<script>
+    // Listen for the 'walletConnected' event
+    window.addEventListener('walletConnected', (event) => {
+        const { connected } = event.detail;
+        location.href="/connected"
+    });
+
+</script>
 
 @yield('scripts')
 
