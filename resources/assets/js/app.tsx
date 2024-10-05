@@ -621,13 +621,15 @@ function CampaignList() {
             {/* Campaign Details */}
             <div className="flex-1 bg-white pt-3 p-6 flex flex-col justify-between dark:bg-gray-800">
               <div className="flex-1">
-                <p className="text-xl font-semibold showcase_text_gray_900">{campaign.name}</p>
-                <p className="mt-3 text-base text-gray-500 dark:text-gray-300 text-justify">
+                <p className="text-xl font-semibold showcase_text_gray_900">
+                  <a href={`/campaigns/${index}`} className="hover:underline">
+                    {campaign.name}
+                  </a>
+                </p>
                 <p className="mt-3 text-base text-gray-500 dark:text-gray-300 text-justify">
                     {campaign.description.length > 300
                         ? `${campaign.description.slice(0, 300)}...`
                         : campaign.description}
-                    </p>
                 </p>
               </div>
   

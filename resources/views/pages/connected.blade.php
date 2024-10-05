@@ -8,7 +8,7 @@
             <div class="mx-auto text-base max-w-prose mt-20">
                 <div class="flex flex-col items-center w-full">
                     <h2 class="text-base text-gray-700 font-semibold tracking-wide uppercase">Welcome</h2>
-                    <h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-teal-600 sm:text-4xl">Get Started with AptosCrowd</h3>
+                    <h3 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-indigo-600 sm:text-4xl">Get Started with AptosCrowd</h3>
                 </div>
 
                 <p class="mt-6">Explore Campaigns - look for a campaign you're interested in</p>

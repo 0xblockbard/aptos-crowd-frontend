@@ -44,10 +44,28 @@
 <script src="{{ vite_asset("resources/assets/js/app.tsx") }}" defer></script>
 
 <script>
-    // Listen for the 'walletConnected' event
+    
+    // listen for the 'walletConnected' event
     window.addEventListener('walletConnected', (event) => {
         const { connected } = event.detail;
         location.href="/connected"
+    });
+
+    // listen for the 'walletDisconnected' event
+    window.addEventListener('walletDisconnected', (event) => {
+        $('.nav_start_campaign_button').addClass('hidden').removeClass('inline-flex');
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        let connected = localStorage.getItem("connected");
+
+        if (connected === "true") {
+            // show nav button
+            $('.nav_start_campaign_button').addClass('inline-flex').removeClass('hidden');
+        } else {
+            // hide nav button
+            $('.nav_start_campaign_button').addClass('hidden').removeClass('inline-flex');
+        }
     });
 
 </script>
