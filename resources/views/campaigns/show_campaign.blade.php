@@ -2,19 +2,23 @@
 
 @section('content')
 
-    <div class="flex max-w-7xl w-full px-10 pt-24 mx-auto">
+    <div class="flex max-w-7xl w-full px-10 pt-10 sm:pt-24 pb-12 sm:pb-0 mx-auto">
 
         <div class="campaign_container single_campaign flex flex-col sm:flex-row w-full">
 
             <div class="flex w-full sm:w-2/3 sm:pr-6">
-                <img id="featured_image" src="https://aptos-blockbard.s3.ap-southeast-2.amazonaws.com/aptos-crowdfund/crowdfunding-placeholder.png" class="featured_image rounded-md w-full" style="height: 500px">
+                {{-- <img id="featured_image" src="https://aptos-blockbard.s3.ap-southeast-2.amazonaws.com/aptos-crowdfund/crowdfunding-placeholder.png" class="featured_image rounded-md w-full" style="height: 500px;"> --}}
+                <div class="aspect-w-16 h-0 w-full relative">
+                    <img id="featured_image" src="https://aptos-blockbard.s3.ap-southeast-2.amazonaws.com/aptos-crowdfund/crowdfunding-placeholder.png" 
+                        class="featured_image absolute inset-0 w-full h-full object-cover rounded-md">
+                </div>
             </div>
 
             <div class="flex flex-col w-full sm:w-1/3 sm:px-6 py-2 ">
 
                 <div id="campaignId" data-campaign-id="{{ $id }}"></div>
 
-                <div class="flex justify-between">
+                <div class="flex justify-between mt-4 sm:mt-0">
                     <span id="count" class="text-gray-500 text-sm">Campaign #X</span>
                     <div id="edit_campaign"></div>
                 </div>

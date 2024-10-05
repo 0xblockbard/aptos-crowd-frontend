@@ -571,11 +571,11 @@ function convertDurationToSeconds(duration) {
 function CampaignList() {
     const { campaigns, isLoading, error } = useGetAllCampaigns();
   
-    if (isLoading) return <div>Loading...</div>;
+    if (isLoading) return <div className="text-center">Loading all campaigns...</div>;
     if (error) return <div>Error fetching campaigns</div>;
   
     return (
-      <div className="w-full mx-auto grid gap-6 lg:grid-cols-3 ">
+      <div className="w-full mx-auto grid gap-6 lg:grid-cols-3 pb-6">
         {campaigns?.map((campaign, index) => (
           <div key={index} className="flex flex-col rounded-lg shadow-lg overflow-hidden">
             {/* Campaign Image and Status */}

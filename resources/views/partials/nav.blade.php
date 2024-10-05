@@ -16,7 +16,7 @@
                         About
                     </a>
 
-                    <a href="{{ route('show_all_campaigns') }}" class="{{ \Request::route()->getName() == 'show_all_campaigns' ? 'border-indigo-500 text-indigo-900' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-indigo-700' }} inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium hover:border-indigo-500">
+                    <a href="{{ route('show_all_campaigns') }}" class="{{ \Request::route()->getName() == 'show_all_campaigns' || \Request::route()->getName() == 'show_campaign' ? 'border-indigo-500 text-indigo-900' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-indigo-700' }} inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium hover:border-indigo-500">
                         Campaigns
                     </a>
 
