@@ -108,6 +108,12 @@ module.exports = {
                 72: "4.5rem",
                 116: "7.25rem",
             },
+            fontFamily: {
+                sans: ['Open Sans', 'sans-serif'],   
+                poppins: ['Poppins', 'sans-serif'],   
+                roboto: ['Roboto Slab', 'sans-serif'],  
+                merriweather: ['Merriweather', 'serif'],
+            },
         },
     },
     plugins: [
