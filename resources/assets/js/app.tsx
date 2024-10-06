@@ -10,6 +10,9 @@ import { useWallet } from "@aptos-labs/wallet-adapter-react";
 import { Aptos, AptosConfig, Network } from "@aptos-labs/ts-sdk";
 import { useState, useEffect } from "react";
 
+// components
+import { CampaignListPlaceholder } from "./components/placeholders/campaign_list_placeholder"
+
 // entry functions
 import { createCampaign } from "./components/entry-functions/create_campaign";
 import { updateCampaign } from "./components/entry-functions/update_campaign";
@@ -268,6 +271,7 @@ function ClaimFundsButton() {
 
           // Check if the connected wallet is the creator
           if (account?.address === campaignData.creator) {
+            console.log('is creator');
             setIsCreator(true);
           }
         }
@@ -288,6 +292,7 @@ function ClaimFundsButton() {
 
       const campaignIdElement = document.getElementById('campaignId');
       let campaign_id = Number(campaignIdElement.getAttribute('data-campaign-id'));
+
 
       // Only allow claiming funds if the current wallet is the creator
       if (isCreator) {
@@ -316,8 +321,12 @@ function ClaimFundsButton() {
   };
 
   return (
+    
     <div>
-      {isCreator ? (
+      {
+        (isCreator && campaignData?.funding_type === 1 && new Date() >= new Date(campaignData?.end_timestamp * 1000)) ||
+        (isCreator && campaignData?.funding_type === 0 && campaignData?.leftover_amount > 0)
+      ? (
         <button
           className="disabled:opacity-50 bg-green-500 flex items-center justify-center text-white active:bg-green-600 font-bold uppercase text-sm px-6 py-3 ml-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
           onClick={claimFundsForm}
@@ -352,27 +361,36 @@ function RefundButton() {
 
         // Check contribution amount for all-or-nothing campaigns
         if (fetchedCampaignData.funding_type === 1) {
+          try {
+            // Attempt to fetch contribution data
+            const contributionData = await getContributorAmount(campaign_id, account?.address);
+            const contributionAmount = contributionData?.contributorInfo?.[0] ?? 0;
 
-          const contributionData = await getContributorAmount(campaign_id, account?.address);
-          const contributionAmount = contributionData?.contributorInfo?.[0] ?? 0; 
-
-          // user can get refund only if campaign is over and it has not been claimed 
-          if(fetchedCampaignData.claimed == false && new Date() >= new Date(fetchedCampaignData.end_timestamp * 1000)){
-            if(contributionAmount > 0){
-              setIsContributor(true);
+            // Check if campaign is over, not claimed, and user has contributed
+            if (
+              fetchedCampaignData.claimed === false &&
+              new Date() >= new Date(fetchedCampaignData.end_timestamp * 1000)
+            ) {
+              if (contributionAmount > 0) {
+                setIsContributor(true);
+              } else {
+                setIsContributor(false); // User has not contributed, ensure state reflects that
+              }
             }
+          } catch (contributionError) {
+            // Gracefully handle cases where no contribution data is found
+            console.log('No contributions found for this user.');
+            setIsContributor(false); // Set false if no contributions are found
           }
-          
         }
       } catch (error) {
-        console.error('Error checking contributor:', error);
+        console.error('Error fetching campaign or contributor data:', error);
       }
     };
 
     if (account?.address) {
       checkIfContributor();
     }
-
   }, [account?.address]);
 
   const submitRefund = async () => {
@@ -413,14 +431,16 @@ function RefundButton() {
 
   return (
     <div>
-      {isContributor && (
-        <button
-          className="disabled:opacity-50 bg-orange-500 flex items-center justify-center text-white active:bg-orange-600 font-bold uppercase text-sm px-6 py-3 ml-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-          onClick={submitRefund}
-        >
-          Refund
-        </button>
-      )}
+      {
+        isContributor && !campaignData?.claimed && new Date() >= new Date(campaignData?.end_timestamp * 1000) ? (
+          <button
+            className="disabled:opacity-50 bg-orange-500 flex items-center justify-center text-white active:bg-orange-600 font-bold uppercase text-sm px-6 py-3 ml-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+            onClick={submitRefund}
+          >
+            Refund
+          </button>
+        ) : ""
+      }
     </div>
   );
 }
@@ -571,11 +591,12 @@ function convertDurationToSeconds(duration) {
 function CampaignList() {
     const { campaigns, isLoading, error } = useGetAllCampaigns();
   
-    if (isLoading) return <div className="text-center">Loading all campaigns...</div>;
+    if (isLoading) return <CampaignListPlaceholder />;
+
     if (error) return <div>Error fetching campaigns</div>;
   
     return (
-      <div className="w-full mx-auto grid gap-6 lg:grid-cols-3 pb-6">
+      <div className="w-full mx-auto grid gap-8 lg:grid-cols-3 pb-6">
         {campaigns?.map((campaign, index) => (
           <div key={index} className="flex flex-col rounded-lg shadow-lg overflow-hidden">
             {/* Campaign Image and Status */}
@@ -713,10 +734,11 @@ function getContributorAmount(campaign_id, contributor): Promise<any> {
           };
       })
       .catch((error) => {
-          console.error('Error fetching contributor info :', error);
+          // console.error('Error fetching contributor info :', error);
           throw error;
       });
 }
+
 
 
 function updateCampaignForm(campaignData: { name: string; description: string; image_url: string }) {
@@ -759,8 +781,8 @@ function renderCampaignInfo(campaignData: {
     $('.single_campaign #target_amount').text(campaignData.funding_goal / 10**decimals);
 
     // percentage raise
-    let percentage_raised = (campaignData.contributed_amount / campaignData.funding_goal) * 100;
-    $('.single_campaign #amount_raised_percentage').text(percentage_raised + '%');
+    let percentage_raised : number = (campaignData.contributed_amount / campaignData.funding_goal) * 100;
+    $('.single_campaign #amount_raised_percentage').text(percentage_raised.toFixed(2) + '%');
     $('.single_campaign #progress_bar').css('width', percentage_raised.toFixed(2) + '%');
 
     if(campaignData.funding_type == 0){
