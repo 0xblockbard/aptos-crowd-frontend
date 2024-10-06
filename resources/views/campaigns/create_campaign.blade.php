@@ -2,11 +2,18 @@
 
 @section('content')
 
-    <div class="flex flex-col w-8/12 px-12 py-6 m-auto mt-8">
+    <div class="flex w-full py-24" style="background-image: url('https://res.cloudinary.com/blockbard/image/upload/c_scale,w_auto,q_auto,f_auto,fl_lossy/v1728199270/header-3.png'); background-size: cover; background-position: center;">
+        <div class="max-w-7xl">
+            <div class="flex flex-col ml-16 sm:ml-40 bg-white opacity-90 px-12 py-4 rounded-md"> 
+                <h3 class="text-3xl text-indigo-600 font-extrabold">Start Campaign</h3>
+                <span class="w-14 border-2 border-indigo-600 mt-1"></span>
+            </div>
+        </div>
+    </div>
 
-        <div class="flex flex-col pl-3 mt-6">
-            <h3 class="font-semibold text-3xl">Start Campaign</h3>
-            <p class="text-sm text-gray-500">All information here will be stored on the Aptos blockchain</p>
+    <div class="flex flex-col w-full sm:w-8/12 px-12 py-6 m-auto">
+
+        <div class="flex flex-col pl-3">
 
             <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mt-4">
                 <div class="flex">
@@ -25,7 +32,7 @@
         </div>
 
         <div id="create_campaign_form" class="w-full mt-6 mb-32 create_campaign_form">
-            <div class="flex flex-row mb-8">
+            <div class="flex flex-col sm:flex-row mb-8">
 
                 <div class="flex flex-col w-full pr-1">
 
@@ -36,12 +43,12 @@
                         <input id="name" autocomplete="off" class="name appearance-none shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full px-2 py-2 sm:text-sm border border-gray-300 rounded-md" type="text" placeholder="Project title">
                     </div>
 
-                    <div class="w-full px-3 mt-6">
+                    <div class="w-full px-3 sm:mt-6">
                         <label class="block mb-2" for="description">
                             <span class="uppercase tracking-wide text-gray-700 text-xs font-bold">About</span>
                             {{-- <span class="pl-2 italic text-gray-500 text-xs">*You can add more text and multimedia in Step 2</span> --}}
                         </label>
-                        <textarea id="description" name="description" rows="8" class="description appearance-none shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full px-2 py-2  sm:text-sm border border-gray-300 rounded-md" placeholder="Tell us about your project"></textarea>
+                        <textarea id="description" name="description" rows="3" class="description appearance-none shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full px-2 py-2  sm:text-sm border border-gray-300 rounded-md" placeholder="Tell us about your project"></textarea>
                     </div>
 
                     <div class="w-full px-3 mb-6 md:mb-0 mt-6">
@@ -73,7 +80,7 @@
                         </div>
                     </div>
 
-                    <div class="w-full px-3 mb-6 md:mb-0 mt-6">
+                    <div class="w-full px-3 mb-6 md:mb-0 sm:mt-6">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="funding_goal">
                             Funding Goal
                         </label>
@@ -87,7 +94,7 @@
                         </div>
                     </div>
 
-                    <div class="w-full px-3 mb-6 md:mb-0 mt-6">
+                    <div class="w-full px-3 mb-6 md:mb-0 sm:mt-6">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="crowdfund_type">
                             Duration
                         </label>
