@@ -20,7 +20,7 @@
                         Campaigns
                     </a>
 
-                    <a href="{{ route('about') }}" class="{{ \Request::route()->getName() == 'about' ? 'border-indigo-500 text-indigo-900' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-indigo-700' }} inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium hover:border-indigo-500">
+                    <a href="{{ route('guide') }}" class="{{ \Request::route()->getName() == 'guide' ? 'border-indigo-500 text-indigo-900' : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-indigo-700' }} inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium hover:border-indigo-500">
                         Guide
                     </a>
 
@@ -31,7 +31,7 @@
         <div class="ml-6 flex items-center">
 
             <a href="{{ route('create_campaign') }}" class="mr-4">
-                <button type="button" class="nav_start_campaign_button items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-300">
+                <button type="button" class="nav_start_campaign_button invisible items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-300">
                     Start Campaign
                 </button>
             </a>

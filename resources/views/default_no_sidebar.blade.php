@@ -9,6 +9,12 @@
 
     <link rel="stylesheet" href="{{ vite_asset("resources/assets/sass/app.scss") }}">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    {{-- <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet"> --}}
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
     <title>@yield('title', 'AptosCrowd')</title>
     {{--SEO meta--}}
     <meta name="description" content="@yield('description')" />
@@ -53,7 +59,8 @@
 
     // listen for the 'walletDisconnected' event
     window.addEventListener('walletDisconnected', (event) => {
-        $('.nav_start_campaign_button').addClass('hidden').removeClass('inline-flex');
+        $('.nav_start_campaign_button').addClass('invisible').removeClass('visible');
+        $('.home_start_campaign_button').addClass('invisible').removeClass('visible');
     });
 
     document.addEventListener('DOMContentLoaded', function () {
@@ -61,10 +68,12 @@
 
         if (connected === "true") {
             // show nav button
-            $('.nav_start_campaign_button').addClass('inline-flex').removeClass('hidden');
+            $('.nav_start_campaign_button').addClass('visible').removeClass('invisible');
+            $('.home_start_campaign_button').addClass('visible').removeClass('invisible');
         } else {
             // hide nav button
-            $('.nav_start_campaign_button').addClass('hidden').removeClass('inline-flex');
+            $('.nav_start_campaign_button').addClass('invisible').removeClass('visible');
+            $('.home_start_campaign_button').addClass('invisible').removeClass('visible');
         }
     });
 
