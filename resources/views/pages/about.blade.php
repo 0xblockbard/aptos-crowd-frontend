@@ -42,9 +42,13 @@
 
                     <div class="mt-2 prose prose-indigo text-gray-600 mx-auto lg:max-w-none lg:row-start-1 lg:col-start-1 text-justify pr-5 space-y-6">
                         
-                        <p>AptosCrowd is a decentralized crowdfunding platform that implements both the Flexible (Keep-It-All) and Fixed (All-Or-Nothing) crowdfunding models. By leveraging the Aptos blockchain, AptosCrowd aims to revolutionize the crowdfunding landscape by providing greater transparency, lower fees, and enhanced security.</p>
+                        <p><span class="font-semibold text-indigo-600">AptosCrowd</span> is a decentralized crowdfunding platform that implements both the Flexible (Keep-It-All) and Fixed (All-Or-Nothing) crowdfunding models.</p>
 
-                        <p>Some of the most significant benefits of a decentralised crowdfunding platform would be greater transparency and efficiency of fees. With no intermediaries involved, it becomes easier to ensure that the funds raised are spent appropriately and to track them if necessary.</p>
+                        <p>By leveraging the Aptos blockchain, <span class="font-semibold text-indigo-600">AptosCrowd</span> aims to revolutionize the crowdfunding landscape by providing greater transparency, lower fees, and enhanced security.</p>
+
+                        <p>Some of the most significant benefits of a decentralised crowdfunding platform would be greater transparency and efficiency of fees.</p>
+
+                        <p>With no intermediaries involved, it becomes easier to ensure that the funds raised are spent appropriately and to track them if necessary.</p>
 
                         <p>Additionally, smart contracts eliminate many of the fees associated with traditional crowdfunding platforms, such as the fundraiser fee (typically 5–8%) and the payment processor fee (around 2.9%).</p>
 
@@ -56,9 +60,13 @@
 
                         <p>Over time and with growing user base, we can adopt a decentralised governance model where members can shape the future direction of new initiatives and ventures.</p>
 
-                        <p>With the implementation of AptosCrowd, I hope that this would lead to a higher number of successful projects started on the Aptos blockchain driven by an ever-growing supportive community.</p>
+                        <p>With the implementation of <span class="font-semibold text-indigo-600">AptosCrowd</span>, I hope that this would lead to a higher number of successful projects started on the Aptos blockchain driven by an ever-growing supportive community.</p>
 
                         <p class="font-semibold italic">By 0xBlockBard</p>
+
+                        <p><span class="font-semibold">Twitter / X:</span> <a class="hover:underline hover:text-indigo-600" target="_blank" href="https://x.com/0xblockbard">https://x.com/0xblockbard</a></p>
+
+                        <p><span class="font-semibold">Substack Newsletter:</span> <a class="hover:underline hover:text-indigo-600" target="_blank" href="https://www.0xblockbard.com/">https://www.0xblockbard.com</a></p>
                         
                     </div>
                 </div>

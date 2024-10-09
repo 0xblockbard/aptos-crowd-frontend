@@ -24,14 +24,14 @@
                         <ul class="mt-1 sm:mt-4 space-y-4 text-md">
 
                             <li>
-                                <a href="{{ route('about') }}" class="text-gray-500 hover:text-gray-900 dark:text-gray-200 dark:hover:text-gray-400">
+                                <a href="{{ route('about') }}" class="text-gray-500 hover:text-indigo-600 ">
                                     About
                                 </a>
                             </li>
 
                             <li>
-                                <a href="{{ route('about') }}" class="text-gray-500 hover:text-gray-900 dark:text-gray-200 dark:hover:text-gray-400">
-                                    FAQ
+                                <a href="{{ route('guide') }}" class="text-gray-500 hover:text-indigo-600 ">
+                                    Guide
                                 </a>
                             </li>
 
@@ -45,7 +45,7 @@
                         <ul class="mt-1 sm:mt-4 space-y-4 text-md">
 
                             <li>
-                                <a href="{{ route('show_all_campaigns') }}" class="text-gray-500 hover:text-gray-900 dark:text-gray-200 dark:hover:text-gray-400">
+                                <a href="{{ route('show_all_campaigns') }}" class="text-gray-500 hover:text-indigo-600 ">
                                     Campaigns
                                 </a>
                             </li>

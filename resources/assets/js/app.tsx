@@ -821,14 +821,6 @@ $(document).ready(function () {
         }
     };
 
-    // if (currentPath.includes("/about")) {
-    //   $(document).ready(function() {
-    //     $('#mydiv').scrollToFixed();
-    //   });
-    // };
-    
-    
-
 });
 
 

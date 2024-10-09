@@ -32,8 +32,14 @@ export function WalletSelector() {
   
   // temp hack for a better UX to circumvent state bugs with hybrid laravel+react build
   const localStorageConnected = localStorage.getItem("connected");
+  
   useEffect(() => {
     if (localStorageConnected === null && connected && account?.address) {
+
+      // console.log('set connected local storage to true');
+      // console.log("localStorageConnected: ", localStorageConnected);
+      // console.log("connected: ", connected);
+      // console.log("account?.address: ", account?.address);
       
       // update localStorage
       localStorage.setItem("connected", "true");

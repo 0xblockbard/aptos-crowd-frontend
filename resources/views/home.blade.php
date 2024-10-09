@@ -30,7 +30,7 @@
                 </div>
 
                 <span class="w-10 border border-indigo-600 mt-24"></span>
-                <p class="text-sm mt-2 italic">Aptos is a decentralised <a href="https://github.com/0xblockbard/aptos-crowd" target="_blank" class="underline hover:text-indigo-600">opensource</a> crowdfunding platform for the community powered by the Aptos Blockchain</p>
+                <p class="text-sm mt-2 italic">A decentralised <a href="https://github.com/0xblockbard/aptos-crowd" target="_blank" class="underline hover:text-indigo-600">opensource</a> crowdfunding platform for the Aptos community</p>
 
             </div>
 
