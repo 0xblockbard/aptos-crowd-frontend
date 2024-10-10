@@ -67,7 +67,7 @@
                             Crowdfunding Type
                         </label>
                         <div class="mt-1 sm:mt-0 w-full relative">
-                            <select id="crowdfund_type" name="crowdfund_type" class="crowdfund_type appearance-none bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500">
+                            <select id="crowdfund_type" name="crowdfund_type" class="crowdfund_type appearance-none bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5">
                                 <option value="KIA" {{ old('crowdfund_type') == 'KIA' ? 'selected' :''  }}>Flexible (Keep-it-all Model)</option>
                                 <option value="AON" {{ old('crowdfund_type') == 'AON' ? 'selected' :''  }}>Fixed (All-or-nothing Model)</option>
                             </select>
@@ -99,7 +99,7 @@
                             Duration
                         </label>
                         <div class="mt-1 sm:mt-0 w-full relative">
-                            <select id="duration" name="duration" class="duration appearance-none bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500">
+                            <select id="duration" name="duration" class="duration appearance-none bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5">
                                 <option value="3" {{ old('duration') == '3' ? 'selected' :''  }}>3 days</option>
                                 <option value="7" {{ old('duration') == '7' ? 'selected' :''  }}>7 days</option>
                                 <option value="14" {{ old('duration') == '14' ? 'selected' :''  }}>14 days</option>

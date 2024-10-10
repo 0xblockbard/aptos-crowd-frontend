@@ -36,7 +36,7 @@
 
             <div class="flex flex-col relative items-center justify-center w-full sm:w-1/2 sm:px-6 py-6 pb-10 sm:pb-0">
 
-                <img class="max-w-full w-[85%] sm:absolute sm:-top-14" src="https://res.cloudinary.com/blockbard/image/upload/v1728201752/home-1.png" alt="crowdfunding rocket aptos" />
+                <img class="max-w-full w-[85%] sm:absolute sm:-top-14" src="https://res.cloudinary.com/blockbard/image/upload/c_scale,w_auto,q_auto,f_auto,fl_lossy/v1728480870/home-2_xtvd5r.png" alt="crowdfunding rocket aptos" />
 
             </div>
 

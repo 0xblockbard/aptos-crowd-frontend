@@ -1,4 +1,4 @@
-<div class="bg-white py-12 sm:pb-24 sm:pt-40">
+<div class="bg-indigo-50 py-12 sm:pb-24 sm:pt-40">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mx-auto max-w-2xl lg:text-center">
         <h2 class="text-base font-semibold leading-7 text-indigo-600">Start a Campaign Today</h2>
@@ -9,7 +9,7 @@
         <div class="grid max-w-2xl text-center grid-cols-1 gap-x-40 lg:max-w-none lg:grid-cols-2">
           <div class="relative">
             <div>
-              <img class="rounded-md pb-2 transition duration-300 ease-in-out hover:scale-[1.05]" src="https://res.cloudinary.com/blockbard/image/upload/c_scale,w_auto,q_auto,f_auto,fl_lossy/v1728410422/rocket-preparing.png"/>
+              <img class="rounded-md pb-2 transition duration-300 ease-in-out hover:scale-[1.05]" src="https://res.cloudinary.com/blockbard/image/upload/c_scale,w_auto,q_auto,f_auto,fl_lossy/v1728481033/rocket-preparing-2_veyw6w.png"/>
             </div>
             <div class="text-2xl mt-2 mb-4 font-semibold leading-7 text-indigo-600">
               Fixed (All-Or-Nothing)
@@ -19,7 +19,7 @@
 
           <div class="relative">
             <div>
-              <img class="rounded-md pb-2 transition duration-300 ease-in-out hover:scale-[1.05]" src="https://res.cloudinary.com/blockbard/image/upload/c_scale,w_auto,q_auto,f_auto,fl_lossy/v1728410422/rocket-liftoff.png"/>
+              <img class="rounded-md pb-2 transition duration-300 ease-in-out hover:scale-[1.05]" src="https://res.cloudinary.com/blockbard/image/upload/c_scale,w_auto,q_auto,f_auto,fl_lossy/v1728481032/rocket-liftoff-2_wcvxic.png"/>
             </div>
             <div class="text-2xl mt-2 mb-4 font-semibold leading-7 text-indigo-600">
               Flexible (Keep-It-All)

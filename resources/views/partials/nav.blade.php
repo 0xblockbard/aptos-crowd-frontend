@@ -1,4 +1,4 @@
-<nav class="fixed w-full bg-white shadow z-20 dark:bg-black dark:border-b border-b border-transparent dark:border-gray-500 ">
+<nav class="fixed w-full bg-white shadow z-20 border-b border-transparent ">
     <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-14">
             <div class="flex sm:w-3/5">

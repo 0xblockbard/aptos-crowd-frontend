@@ -7,7 +7,7 @@ export function CampaignListPlaceholder() {
       {Array.from({ length: 3 }).map((_, idx) => (
         <div key={idx} className="flex flex-col rounded-lg shadow-lg overflow-hidden animate-pulse">
           <div className="flex-shrink-0 relative bg-gray-300 h-72 w-full"></div>
-          <div className="flex-1 bg-white pt-3 p-6 flex flex-col justify-between dark:bg-gray-800">
+          <div className="flex-1 bg-white pt-3 p-6 flex flex-col justify-between">
             <div className="flex-1 space-y-4">
               <div className="h-6 bg-gray-300 rounded w-3/4"></div>
               <div className="space-y-2">
@@ -29,7 +29,7 @@ export function CampaignListPlaceholder() {
       {Array.from({ length: 3 }).map((_, idx) => (
         <div key={3 + idx} className="flex flex-col rounded-lg shadow-lg overflow-hidden animate-pulse">
           <div className="flex-shrink-0 relative bg-gray-300 h-72 w-full"></div>
-          <div className="flex-1 bg-white pt-3 p-6 flex flex-col justify-between dark:bg-gray-800">
+          <div className="flex-1 bg-white pt-3 p-6 flex flex-col justify-between">
             <div className="flex-1 space-y-4">
               <div className="h-6 bg-gray-300 rounded w-3/4"></div>
               <div className="space-y-2">

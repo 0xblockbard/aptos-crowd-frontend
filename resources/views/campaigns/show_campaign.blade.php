@@ -10,7 +10,7 @@
                 {{-- <img id="featured_image" src="https://aptos-blockbard.s3.ap-southeast-2.amazonaws.com/aptos-crowdfund/crowdfunding-placeholder.png" class="featured_image rounded-md w-full" style="height: 500px;"> --}}
                 <div class="aspect-w-16 h-0 w-full relative">
                     <img id="featured_image" src="https://aptos-blockbard.s3.ap-southeast-2.amazonaws.com/aptos-crowdfund/crowdfunding-placeholder.png" 
-                        class="featured_image absolute inset-0 w-full h-full object-cover rounded-md">
+                        class="featured_image absolute inset-0 w-full h-full object-cover rounded-md shadow-lg shadow-indigo-400">
                 </div>
             </div>
 

@@ -629,7 +629,7 @@ function CampaignList() {
               </div>
   
               {/* Progress Bar */}
-              <div className="relative -top-3 overflow-hidden h-3 text-xs flex bg-indigo-200">
+              <div className="flex relative overflow-hidden h-3 text-xs bg-white">
                 <div
                   style={{
                     width: `${(campaign.contributed_amount / campaign.funding_goal) * 100}%`,
@@ -640,14 +640,14 @@ function CampaignList() {
             </div>
   
             {/* Campaign Details */}
-            <div className="flex-1 bg-white pt-3 p-6 flex flex-col justify-between dark:bg-gray-800">
+            <div className="flex-1 bg-white pt-3 p-6 flex flex-col justify-between ">
               <div className="flex-1">
                 <p className="text-xl font-semibold showcase_text_gray_900">
                   <a href={`/campaigns/${index}`} className="hover:underline">
                     {campaign.name}
                   </a>
                 </p>
-                <p className="mt-3 text-base text-gray-500 dark:text-gray-300 text-justify">
+                <p className="mt-3 text-base text-gray-500 text-justify">
                     {campaign.description.length > 300
                         ? `${campaign.description.slice(0, 300)}...`
                         : campaign.description}
