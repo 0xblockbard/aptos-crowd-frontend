@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="flex w-full py-24" style="background-image: url('https://res.cloudinary.com/blockbard/image/upload/c_scale,w_auto,q_auto,f_auto,fl_lossy/v1728018293/header-2.png'); background-size: cover; background-position: center;">
+    <div class="flex w-full py-24 shadow-md" style="background-image: url('https://res.cloudinary.com/blockbard/image/upload/c_scale,w_auto,q_auto,f_auto,fl_lossy/v1728018293/header-2.png'); background-size: cover; background-position: center;">
         <div class="max-w-7xl">
             <div class="flex flex-col ml-40 bg-white opacity-90 px-12 py-4 rounded-md"> 
                 <h3 class="text-3xl text-indigo-600 font-extrabold">Campaigns</h3>
